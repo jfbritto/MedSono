@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:url" content="http://www.jfbritto.com.br">
-    <meta property="og:title" content="Qualidade de vida SF - 36">
-    <meta property="og:site_name" content="Instrumento de pesquisa">
-    <meta property="og:description" content="Instrumento de pesquisa | Qualidade de vida SF - 36.">
-    <meta property="og:image" content="http://www.ufes.br/sites/all/themes/padrao_ufes/logo.png">
+    <meta property="og:url" content="https://medsono.jfbritto.com.br">
+    <meta property="og:title" content="MedSono / 4º periodo">
+    <meta property="og:site_name" content="MedSono">
+    <meta property="og:description" content="Índice da qualidade do sono de Pittsburgh">
+    <meta property="og:image" content="https://unifacig.edu.br/wp-content/uploads/2019/01/unifacig.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:type" content="website">
 
