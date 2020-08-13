@@ -1,0 +1,16 @@
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.bgc-verde{
+    background-color: #28a745;
+    color: #fff;
+}
+.bgc-vermelho{
+    background-color: #dc3545;
+    color: #fff;
+}
+.bgc-amarelo{
+    background-color: #ffc107;
+    color: #fff;
+}
