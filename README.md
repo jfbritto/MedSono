@@ -1,4 +1,4 @@
-<p align="center"><img src="https://unifacig.edu.br/wp-content/uploads/2019/01/unifacig.png" width="400"></p>
+<p align="center"><img src="https://unifacig.edu.br/wp-content/uploads/2019/01/unifacig.png" width="200"></p>
 
 ## Índice da qualidade do sono de Pittsburgh
 
