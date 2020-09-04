@@ -14,3 +14,39 @@
     background-color: #ffc107;
     color: #fff;
 }
+
+.card{
+    margin-top: 20px;
+    /* margin-bottom: 20px; */
+}      
+
+.card-header{
+    color: #f1f1f1;
+    font-weight: bold;
+} 
+
+.bg-info{
+    background-color: #0982c4 !important;
+}
+
+.btn-success{
+    background-color: #3aa139 !important;
+}
+
+body{
+    /* background-color: #f1f1f1; */
+    background-color: #2a2a2e;
+} 
+
+.top-bar-style{
+
+    height: 15px; 
+    position: fixed; 
+    top: 0; 
+    z-index: 1; 
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.bg-default {
+    color: #bf0811
+}
