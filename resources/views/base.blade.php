@@ -4,11 +4,26 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Find Box</title>
+        <title>Med Sono</title>
 
         <link rel="icon" href="/img/ico.png">
 
         <meta name="theme-color" content="#1bb0be">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name=”keywords” content="med sono, med, sono, pesquisa" />
+        <meta property="og:url" content="http://medsono.jfbritto.com.br/" />
+        <meta property="type" content="website" />
+        <meta property="og:title" content="MED SONO">
+        <meta property="og:description" content="Índice da qualidade do sono de Pittsburgh">
+        <meta property="og:image" content="https://unifacig.edu.br/wp-content/uploads/2019/01/unifacig.png">
+        <meta property="og:locale" content="pt_BR">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="640">
+        <meta property="og:image:height" content="480">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -20,25 +35,6 @@
     </head>
     <body style="background-color:#4e7eb5 !important">
 
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
-        <a class="navbar-brand" href="/home"><img id="animate" src="https://unifacig.edu.br/wp-content/uploads/2019/01/unifacig.png" alt="" style="width: 120px"></a> -->
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
-
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            
-            </ul>
-
-            <a class="nav-link" href="#" id="sair" style="color:#f39322">Sair </a>
-
-        </div> -->
-        <!-- </nav> -->
-
-
-
-
         <div class="container-fluid mb-5" style="padding-top: 15px">
 
             @yield('body')
@@ -48,12 +44,6 @@
         <footer class="bg-black small text-center text-white-50" style="padding: 10px">
             <div class="container">
                 <div class="social d-flex justify-content-center">
-                    <!-- <a target="_blank" href="https://www.instagram.com/bianchijf/" class="mx-2">
-                        <i style="color: #fff; width: 30px" class="fab fa-instagram"></i>
-                    </a>
-                    <a target="_blank" href="https://www.linkedin.com/in/jo%C3%A3o-filipi-britto-a7375a103/" class="mx-2">
-                        <i style="color: #fff; width: 30px" class="fab fa-linkedin"></i>
-                    </a> -->
                     <a target="_blank" href="https://github.com/jfbritto" class="mx-2">
                         <i style="color: #fff; width: 30px" class="fab fa-github"></i>
                     </a>
