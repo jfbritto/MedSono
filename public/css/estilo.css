@@ -50,3 +50,7 @@ body{
 .bg-default {
     color: #bf0811
 }
+
+.border-info{
+    border-color: #bf0811 !important;
+}
