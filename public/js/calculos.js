@@ -1,391 +1,365 @@
-$( document ).ready(function() {
 
-    // $("input[name='pergunta1']").on("change", function(){
-    //     alert($("input[name='pergunta1']:checked").val());
-    // });
+    function componente1()
+    {
+        // valor da questão 6
+        let resp = parseInt($("input[name='pergunta6']:checked").val());
+        return resp;
+    }
 
-    $("input[name='pergunta7']").on("change", function(){
+    function componente2()
+    {
+        // valor da questão 2 + valor da questão 5A
+        let p2 = $("input[name='pergunta2']:checked").val();
+        let p5a = $("input[name='pergunta5a']:checked").val();
+        let resp = parseInt(p2)+parseInt(p5a)
+        return resp;
+    }
 
-        let valor = $("input[name='pergunta7']:checked").val();
-        console.log(valor);
-        if(valor == 6){
-            $('#p-8-1').prop('checked', true);
-            $('#p-8-1').val(6);
-        }else{
-            $("input[name='pergunta8']:checked").prop('checked', false);
-            $('#p-8-1').val(5);
-        }
+    function componente3()
+    {
+        // valor da questão 4
+        let resp = $("#p-4").val();
+        return resp;
+    }
+
+    function componente4()
+    {
+        // x = valor da questão 3 - valor da questão 1
+        let deitar = $("#p-3").val()
+        let levantar = $("#p-1").val()
+
+        let day1 = "20";
+        if(levantar == "00:00" || levantar == "01:00" || levantar == "02:00" || levantar == "03:00")
+            day1 = "21";
+
+        var dtPartida  = day1+"/06/2017 "+levantar+":00";
+        var dtChegada = "21/06/2017 "+deitar+":00";
+      
+        var ms = moment(dtChegada,"DD/MM/YYYY HH:mm:ss").diff(moment(dtPartida,"DD/MM/YYYY HH:mm:ss"));
+        var d = moment.duration(ms);
+        var horas_sono = parseInt(Math.floor(d.asHours()));
+        
+        // valor da questão 4 / x vezes 100 -> resposta em porcentagem
+        let porcent = ((parseInt($("#p-4").val())/horas_sono)*100).toFixed(2);
+
+        // dependendo da porcentagem o resultado será 0, 1, 2 ou 3
+
+        let resp = 0;
+
+        if(porcent > 85)
+            resp = 0
+        else if(porcent <= 84 && porcent >= 75)
+            resp = 1
+        else if(porcent <= 74 && porcent >= 65)
+            resp = 2
+        else if(porcent <= 64)
+            resp = 3
             
-    });
+        return resp;    
 
-    function calculoFinal()
-    {
-        estadoGeralSaude();
-        capacidadeFuncional();
-        aspectoFisico();
-        aspectoEmocional();
-        aspectoSocial();
-        vitalidade();
-        saudeMental();
-        dor();
-        verifyCheck();
-
-        $("#card-resultados").show();
+        // > 85% = 0
+        // 75 - 84 = 1
+        // 65 - 74 = 2
+        // < 65 = 3
     }
 
-    function estadoGeralSaude()
+    function componente5()
     {
-        let resp1 = $("input[name='pergunta1']:checked").val();
-        let resp11a = $("input[name='pergunta11a']:checked").val();
-        let resp11b = $("input[name='pergunta11b']:checked").val();
-        let resp11c = $("input[name='pergunta11c']:checked").val();
-        let resp11d = $("input[name='pergunta11d']:checked").val();
+        //soma a questão 5 de B a J
+        let p5b = $("input[name='pergunta5b']:checked").val();
+        let p5c = $("input[name='pergunta5c']:checked").val();
+        let p5d = $("input[name='pergunta5d']:checked").val();
+        let p5e = $("input[name='pergunta5e']:checked").val();
+        let p5f = $("input[name='pergunta5f']:checked").val();
+        let p5g = $("input[name='pergunta5g']:checked").val();
+        let p5h = $("input[name='pergunta5h']:checked").val();
+        let p5i = $("input[name='pergunta5i']:checked").val();
+        let p5j = $("input[name='pergunta5j']:checked").val();
 
-        let soma = parseInt(resp1)+parseInt(resp11a)+parseInt(resp11b)+parseInt(resp11c)+parseInt(resp11d);
-        let resultado = (soma-5)/20;
-        let porcentagem = resultado*100;
-        porcentagem = parseFloat(porcentagem.toFixed(2))
+        let soma = parseInt(p5b)+parseInt(p5c)+parseInt(p5d)+parseInt(p5e)+parseInt(p5f)+parseInt(p5g)+parseInt(p5h)+parseInt(p5i)+parseInt(p5j);
 
-        if(isNaN(soma) || isNaN(porcentagem)){
-            $("#soma-egs").html("0");
-            $("#porcentagem-egs").html("0%");
-        }else{
-            $("#soma-egs").html(soma);
-            $("#porcentagem-egs").html(porcentagem+"%");
-        }
+        //dependendo da soma o resultado dará 0, 1, 2, ou 3
 
+        let resp = 0;
+
+        if(soma <= 27 && soma >= 19)
+            resp = 3
+        else if(soma <= 18 && soma >= 10)
+            resp = 2
+        else if(soma <= 9 && soma >= 1)
+            resp = 1
+        else if(soma = 0)
+            resp = 0
+
+        return resp;
+
+        // 0 = 0
+        // 1 - 9 = 1
+        // 10 - 18 = 2
+        // 19 - 27 = 3
     }
 
-    function capacidadeFuncional()
+    function componente6()
     {
-        let resp3a = $("input[name='pergunta3a']:checked").val();
-        let resp3b = $("input[name='pergunta3b']:checked").val();
-        let resp3c = $("input[name='pergunta3c']:checked").val();
-        let resp3d = $("input[name='pergunta3d']:checked").val();
-        let resp3e = $("input[name='pergunta3e']:checked").val();
-        let resp3f = $("input[name='pergunta3f']:checked").val();
-        let resp3g = $("input[name='pergunta3g']:checked").val();
-        let resp3h = $("input[name='pergunta3h']:checked").val();
-        let resp3i = $("input[name='pergunta3i']:checked").val();
-        let resp3j = $("input[name='pergunta3j']:checked").val();
+        // valor da questão 7
+        let resp = $("input[name='pergunta7']:checked").val();
 
-        let soma = parseInt(resp3a)+parseInt(resp3b)+parseInt(resp3c)+parseInt(resp3d)+parseInt(resp3e)+parseInt(resp3f)+parseInt(resp3g)+parseInt(resp3h)+parseInt(resp3i)+parseInt(resp3j);
-        let resultado = (soma-10)/20;
-        let porcentagem = resultado*100;
-        porcentagem = parseFloat(porcentagem.toFixed(2))
-
-        if(isNaN(soma) || isNaN(porcentagem)){
-            $("#soma-cf").html("0");
-            $("#porcentagem-cf").html("0%");
-        }else{
-            $("#soma-cf").html(soma);
-            $("#porcentagem-cf").html(porcentagem+"%");
-        }
+        return resp;
     }
 
-    function aspectoFisico()
+    function componente7()
     {
-        let resp4a = $("input[name='pergunta4a']:checked").val();
-        let resp4b = $("input[name='pergunta4b']:checked").val();
-        let resp4c = $("input[name='pergunta4c']:checked").val();
-        let resp4d = $("input[name='pergunta4d']:checked").val();
+        // valor da questão 8 + valor da questão 9
+        let p8 = $("input[name='pergunta8']:checked").val();
+        let p9 = $("input[name='pergunta9']:checked").val();
+        
+        let soma = parseInt(p8)+parseInt(p9);
 
-        let soma = parseInt(resp4a)+parseInt(resp4b)+parseInt(resp4c)+parseInt(resp4d);
-        let resultado = (soma-4)/4;
-        let porcentagem = resultado*100;
-        porcentagem = parseFloat(porcentagem.toFixed(2))
+        // dependendo do resultado da soma, o resultado será 0, 1, 2 ou 3
 
-        if(isNaN(soma) || isNaN(porcentagem)){
-            $("#soma-af").html("0");
-            $("#porcentagem-af").html("0%");
-        }else{
-            $("#soma-af").html(soma);
-            $("#porcentagem-af").html(porcentagem+"%");
-        }
+        let resp = 0;
+
+        if(soma <= 7 && soma >= 5)
+            resp = 3
+        else if(soma <= 4 && soma >= 3)
+            resp = 2
+        else if(soma <= 2 && soma >= 1)
+            resp = 1
+        else if(soma = 0)
+            resp = 0
+
+        return resp;
+
+        // 0 = 0
+        // 1 - 2 =1
+        // 3 - 4 =2
+        // 5 - 7 =3
     }
 
-    function aspectoEmocional()
+    function resultadoFinal() 
     {
-        let resp5a = $("input[name='pergunta5a']:checked").val();
-        let resp5b = $("input[name='pergunta5b']:checked").val();
-        let resp5c = $("input[name='pergunta5c']:checked").val();
+        if(validaCampos())
+        {
+            let resultado = parseInt(componente1())+parseInt(componente2())+parseInt(componente3())+parseInt(componente4())+parseInt(componente5())+parseInt(componente6())+parseInt(componente7());
+            
 
-        let soma = parseInt(resp5a)+parseInt(resp5b)+parseInt(resp5c);
-        let resultado = (soma-3)/3;
-        let porcentagem = resultado*100;
-        porcentagem = parseFloat(porcentagem.toFixed(2))
+            console.log("aceito: "+$("input[name='aceito']:checked").val());
+            console.log("email: "+$("#email").val());
+            console.log("sexo: "+$("input[name='geral-1']:checked").val());
+            console.log("faixa etaria: "+$("input[name='geral-2']:checked").val());
+            console.log("periodo: "+$("#geral-3").val());
+            console.log("frequencia: "+$("input[name='geral-4']:checked").val());
+            console.log("alimentacao: "+$("input[name='geral-5']:checked").val());
 
-        if(isNaN(soma) || isNaN(porcentagem)){
-            $("#soma-ae").html("0");
-            $("#porcentagem-ae").html("0%");
-        }else{
-            $("#soma-ae").html(soma);
-            $("#porcentagem-ae").html(porcentagem+"%");
-        }
-    }
+            console.log("p1: "+$("#p-1").val());
+            console.log("p2: "+$("input[name='pergunta2']:checked").val());
+            console.log("p3: "+$("#p-3").val());
+            console.log("p4: "+$("#p-4").val());
 
-    function aspectoSocial()
-    {
-        let resp6 = $("input[name='pergunta6']:checked").val();
-        let resp10 = $("input[name='pergunta10']:checked").val();
+            console.log("p5a: "+$("input[name='pergunta5a']:checked").val());
+            console.log("p5b: "+$("input[name='pergunta5b']:checked").val());
+            console.log("p5c: "+$("input[name='pergunta5c']:checked").val());
+            console.log("p5d: "+$("input[name='pergunta5d']:checked").val());
+            console.log("p5e: "+$("input[name='pergunta5e']:checked").val());
+            console.log("p5f: "+$("input[name='pergunta5f']:checked").val());
+            console.log("p5g: "+$("input[name='pergunta5g']:checked").val());
+            console.log("p5h: "+$("input[name='pergunta5h']:checked").val());
+            console.log("p5i: "+$("input[name='pergunta5i']:checked").val());
+            console.log("p5j: "+$("input[name='pergunta5j']:checked").val());
 
-        let soma = parseInt(resp6)+parseInt(resp10);
-        let resultado = (soma-2)/8;
-        let porcentagem = resultado*100;
-        porcentagem = parseFloat(porcentagem.toFixed(2))
+            console.log("p6: "+$("input[name='pergunta6']:checked").val());
+            console.log("p7: "+$("input[name='pergunta7']:checked").val());
+            console.log("p8: "+$("input[name='pergunta8']:checked").val());
+            console.log("p9: "+$("input[name='pergunta9']:checked").val());
 
-        if(isNaN(soma) || isNaN(porcentagem)){
-            $("#soma-as").html("0");
-            $("#porcentagem-as").html("0%");
-        }else{
-            $("#soma-as").html(soma);
-            $("#porcentagem-as").html(porcentagem+"%");
-        }
-    }
+            console.log("componente1: "+componente1());
+            console.log("componente2: "+componente2());
+            console.log("componente3: "+componente3());
+            console.log("componente4: "+componente4());
+            console.log("componente5: "+componente5());
+            console.log("componente6: "+componente6());
+            console.log("componente7: "+componente7());
+            
+            let result = '';
+            
+            if(resultado >= 0 && resultado <= 4)
+                result = 'boa'
+            else if(resultado >= 5 && resultado <= 10)
+                result = 'ruim'
+            else if(resultado >= 11)
+                result = 'presença de disturbio do sono'
 
-    function vitalidade()
-    {
-        let resp9a = $("input[name='pergunta9a']:checked").val();
-        let resp9e = $("input[name='pergunta9e']:checked").val();
-        let resp9g = $("input[name='pergunta9g']:checked").val();
-        let resp9i = $("input[name='pergunta9i']:checked").val();
+                
+            console.log("resultado: "+result);
+            
 
-        let soma = parseInt(resp9a)+parseInt(resp9e)+parseInt(resp9g)+parseInt(resp9i);
-        let resultado = (soma-4)/20;
-        let porcentagem = resultado*100;
-        porcentagem = parseFloat(porcentagem.toFixed(2))
+            return result;
 
-        if(isNaN(soma) || isNaN(porcentagem)){
-            $("#soma-v").html("0");
-            $("#porcentagem-v").html("0%");
-        }else{
-            $("#soma-v").html(soma);
-            $("#porcentagem-v").html(porcentagem+"%");
-        }
-    }
-
-    function saudeMental()
-    {
-        let resp9b = $("input[name='pergunta9b']:checked").val();
-        let resp9c = $("input[name='pergunta9c']:checked").val();
-        let resp9d = $("input[name='pergunta9d']:checked").val();
-        let resp9f = $("input[name='pergunta9f']:checked").val();
-        let resp9h = $("input[name='pergunta9h']:checked").val();
-
-        let soma = parseInt(resp9b)+parseInt(resp9c)+parseInt(resp9d)+parseInt(resp9f)+parseInt(resp9h);
-        let resultado = (soma-5)/25;
-        let porcentagem = resultado*100;
-        porcentagem = parseFloat(porcentagem.toFixed(2))
-
-        if(isNaN(soma) || isNaN(porcentagem)){
-            $("#soma-sm").html("0");
-            $("#porcentagem-sm").html("0%");
-        }else{
-            $("#soma-sm").html(soma);
-            $("#porcentagem-sm").html(porcentagem+"%");
+            // resultado
+            // 0 - 4 = boa
+            // 5 - 10 = ruim
+            // > 10 = presença de disturbio do sono
         }
     }
 
-    function dor()
+
+    function validaCampos() 
     {
-        let resp7 = $("input[name='pergunta7']:checked").val();
-        let resp8 = $("input[name='pergunta8']:checked").val();
+        //geral
 
-        let soma = parseInt(resp7)+parseInt(resp8);
-        let resultado = (soma-2)/10;
-        let porcentagem = resultado*100;
-        porcentagem = parseFloat(porcentagem.toFixed(2))
-
-        if(isNaN(soma) || isNaN(porcentagem)){
-            $("#soma-d").html("0");
-            $("#porcentagem-d").html("0%");
-        }else{
-            $("#soma-d").html(soma);
-            $("#porcentagem-d").html(porcentagem+"%");
-        }
-    }
-
-    $("input[type='radio']").on("click", function(){
-        verifyCheck();
-        // console.log("opa")
-    });
-
-    function verifyCheck()
-    {
-        let resp1   = $("input[name='pergunta1']:checked").val();
-        let resp3a  = $("input[name='pergunta3a']:checked").val();
-        let resp3b  = $("input[name='pergunta3b']:checked").val();
-        let resp3c  = $("input[name='pergunta3c']:checked").val();
-        let resp3d  = $("input[name='pergunta3d']:checked").val();
-        let resp3e  = $("input[name='pergunta3e']:checked").val();
-        let resp3f  = $("input[name='pergunta3f']:checked").val();
-        let resp3g  = $("input[name='pergunta3g']:checked").val();
-        let resp3h  = $("input[name='pergunta3h']:checked").val();
-        let resp3i  = $("input[name='pergunta3i']:checked").val();
-        let resp3j  = $("input[name='pergunta3j']:checked").val();
-        let resp4a  = $("input[name='pergunta4a']:checked").val();
-        let resp4b  = $("input[name='pergunta4b']:checked").val();
-        let resp4c  = $("input[name='pergunta4c']:checked").val();
-        let resp4d  = $("input[name='pergunta4d']:checked").val();
-        let resp5a  = $("input[name='pergunta5a']:checked").val();
-        let resp5b  = $("input[name='pergunta5b']:checked").val();
-        let resp5c  = $("input[name='pergunta5c']:checked").val();
-        let resp6   = $("input[name='pergunta6']:checked").val();
-        let resp7   = $("input[name='pergunta7']:checked").val();
-        let resp8   = $("input[name='pergunta8']:checked").val();
-        let resp9a  = $("input[name='pergunta9a']:checked").val();
-        let resp9b  = $("input[name='pergunta9b']:checked").val();
-        let resp9c  = $("input[name='pergunta9c']:checked").val();
-        let resp9d  = $("input[name='pergunta9d']:checked").val();
-        let resp9e  = $("input[name='pergunta9e']:checked").val();
-        let resp9f  = $("input[name='pergunta9f']:checked").val();
-        let resp9g  = $("input[name='pergunta9g']:checked").val();
-        let resp9h  = $("input[name='pergunta9h']:checked").val();
-        let resp9i  = $("input[name='pergunta9i']:checked").val();
-        let resp10  = $("input[name='pergunta10']:checked").val();
-        let resp11a = $("input[name='pergunta11a']:checked").val();
-        let resp11b = $("input[name='pergunta11b']:checked").val();
-        let resp11c = $("input[name='pergunta11c']:checked").val();
-        let resp11d = $("input[name='pergunta11d']:checked").val();
-
-        let cont = 0;
-
-        if( resp1 > 0)
-            cont++;
-
-        if( resp3a > 0)
-            cont++;
-
-        if( resp3b > 0)
-            cont++;
-
-        if( resp3c > 0)
-            cont++;
-
-        if( resp3d > 0)
-            cont++;
-
-        if( resp3e > 0)
-            cont++;
-
-        if( resp3f > 0)
-            cont++;
-
-        if( resp3g > 0)
-            cont++;
-
-        if( resp3h > 0)
-            cont++;
-
-        if( resp3i > 0)
-            cont++;
-
-        if( resp3j > 0)
-            cont++;
-
-        if( resp4a > 0)
-            cont++;
-
-        if( resp4b > 0)
-            cont++;
-
-        if( resp4c > 0)
-            cont++;
-
-        if( resp4d > 0)
-            cont++;
-
-        if( resp5a > 0)
-            cont++;
-
-        if( resp5b > 0)
-            cont++;
-
-        if( resp5c > 0)
-            cont++;
-
-        if( resp6 > 0)
-            cont++;
-
-        if( resp7 > 0)
-            cont++;
-
-        if( resp8 > 0)
-            cont++;
-
-        if( resp9a > 0)
-            cont++;
-
-        if( resp9b > 0)
-            cont++;
-
-        if( resp9c > 0)
-            cont++;
-
-        if( resp9d > 0)
-            cont++;
-
-        if( resp9e > 0)
-            cont++;
-
-        if( resp9f > 0)
-            cont++;
-
-        if( resp9g > 0)
-            cont++;
-
-        if( resp9h > 0)
-            cont++;
-
-        if( resp9i > 0)
-            cont++;
-
-        if( resp10 > 0)
-            cont++;
-
-        if( resp11a > 0)
-            cont++;
-
-        if( resp11b > 0)
-            cont++;
-
-        if( resp11c > 0)
-            cont++;
-
-        if( resp11d > 0)
-            cont++;
-
-        let respondidas = cont;
-        let vazias = 35 - parseInt(respondidas);
-
-        let tamanho = (100*parseInt(respondidas))/35;
-
-        $("#resp-tot").removeClass("badge-success");
-        $("#resp-tot").removeClass("badge-warning");
-        $("#resp-tot").removeClass("badge-danger");
-
-        if( cont <= 25 ){
-            $("#resp-tot").addClass("badge-danger");
-            changeTop(tamanho, 2);
-        }else if( cont > 25 && cont < 35 ){
-            $("#resp-tot").addClass("badge-warning");
-            changeTop(tamanho, 3);
-        }else if( cont == 35 ){
-            $("#resp-tot").addClass("badge-success");
-            changeTop(tamanho, 1);
+        //verifica 'aceito'
+        if($("input[name='aceito']:checked").val() == undefined){
+            alert("Para concluir o questionário você precisará permitir que suas respostas sejam utilizadas!");
+            return false;
         }
         
-        $("#resp-tot").html(respondidas)
+        //verifica 'email'
+        if($("#email").val() == ""){
+            alert("Informe seu email!");
+            return false;
+        }
 
+        //verifica sexo
+        if($("input[name='geral-1']:checked").val() == undefined){
+            alert("Informe seu sexo!");
+            return false;
+        }
+
+        //verifica faixa etaria
+        if($("input[name='geral-2']:checked").val() == undefined){
+            alert("Informe sua faixa etária!");
+            return false;
+        }
+
+        //verifica periodo
+        if($("#geral-3").val() == ""){
+            alert("Informe seu período!");
+            return false;
+        }
+
+        //verifica frequencia
+        if($("input[name='geral-4']:checked").val() == undefined){
+            alert("Informe sua frequência em praticar atividades físicas!");
+            return false;
+        }
+
+        //verifica alimentação
+        if($("input[name='geral-5']:checked").val() == undefined){
+            alert("Informe a qualidade da sua alimentação!");
+            return false;
+        }
+
+
+
+        //perguntas
+
+        //verifica p1
+        if($("#p-1").val() == ""){
+            alert("A pergunta 1 precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica p2
+        if($("input[name='pergunta2']:checked").val() == undefined){
+            alert("A pergunta 2 precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica p3
+        if($("#p-3").val() == ""){
+            alert("A pergunta 3 precisa ser preenchida!");
+            return false;
+        }
+        
+        //verifica p4
+        if($("#p-4").val() == ""){
+            alert("A pergunta 4 precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5a
+        if($("input[name='pergunta5a']:checked").val() == undefined){
+            alert("A pergunta 5a precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5b
+        if($("input[name='pergunta5b']:checked").val() == undefined){
+            alert("A pergunta 5b precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5c
+        if($("input[name='pergunta5c']:checked").val() == undefined){
+            alert("A pergunta 5c precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5d
+        if($("input[name='pergunta5d']:checked").val() == undefined){
+            alert("A pergunta 5d precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5e
+        if($("input[name='pergunta5e']:checked").val() == undefined){
+            alert("A pergunta 5e precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5f
+        if($("input[name='pergunta5f']:checked").val() == undefined){
+            alert("A pergunta 5f precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5g
+        if($("input[name='pergunta5g']:checked").val() == undefined){
+            alert("A pergunta 5g precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5h
+        if($("input[name='pergunta5h']:checked").val() == undefined){
+            alert("A pergunta 5h precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5i
+        if($("input[name='pergunta5i']:checked").val() == undefined){
+            alert("A pergunta 5i precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica 5j
+        if($("input[name='pergunta5j']:checked").val() == undefined){
+            alert("A pergunta 5j precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica p6
+        if($("input[name='pergunta6']:checked").val() == undefined){
+            alert("A pergunta 6 precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica p7
+        if($("input[name='pergunta7']:checked").val() == undefined){
+            alert("A pergunta 7 precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica p8
+        if($("input[name='pergunta8']:checked").val() == undefined){
+            alert("A pergunta 8 precisa ser preenchida!");
+            return false;
+        }
+
+        //verifica p9
+        if($("input[name='pergunta9']:checked").val() == undefined){
+            alert("A pergunta 9 precisa ser preenchida!");
+            return false;
+        }
+        
+        return true;
     }
-
-    function changeTop(size, color)
-    {
-        cor = {1:"#28a745", 2:"#dc3545", 3:"#ffc107"};
-
-        $(".top-bar-style").css("width", size+"%");
-        $(".top-bar-style").css("background-color", cor[color]);
-        $(".top-bar-style").css("border", "1px solid "+cor[color]);
-    }
-
-});

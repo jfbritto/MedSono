@@ -6,7 +6,7 @@
 
         <title>Med Sono</title>
 
-        <link rel="icon" href="/img/ico.png">
+        <link rel="icon" href="https://unifacig.edu.br/wp-content/uploads/2019/01/unifacig.png">
 
         <meta name="theme-color" content="#1bb0be">
 
@@ -56,6 +56,7 @@
         <script src="/js/sweetalert.js"></script>
         <script src="/js/app.js"></script>
         <script src="/js/common.js"></script>
+        <script src="/js/moment.js"></script>
         <script src="/js/calculos.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     

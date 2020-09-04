@@ -54,3 +54,7 @@ body{
 .border-info{
     border-color: #bf0811 !important;
 }
+
+.card-header {
+    border-bottom: 1px solid #bf0811;
+}
