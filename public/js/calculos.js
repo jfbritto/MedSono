@@ -141,8 +141,16 @@
         if(validaCampos())
         {
             let resultado = parseInt(componente1())+parseInt(componente2())+parseInt(componente3())+parseInt(componente4())+parseInt(componente5())+parseInt(componente6())+parseInt(componente7());
-            
 
+            let result = '';
+            
+            if(resultado >= 0 && resultado <= 4)
+                result = 'boa'
+            else if(resultado >= 5 && resultado <= 10)
+                result = 'ruim'
+            else if(resultado >= 11)
+                result = 'presença de disturbio do sono'
+            
             console.log("aceito: "+$("input[name='aceito']:checked").val());
             console.log("email: "+$("#email").val());
             console.log("sexo: "+$("input[name='geral-1']:checked").val());
@@ -179,17 +187,7 @@
             console.log("componente5: "+componente5());
             console.log("componente6: "+componente6());
             console.log("componente7: "+componente7());
-            
-            let result = '';
-            
-            if(resultado >= 0 && resultado <= 4)
-                result = 'boa'
-            else if(resultado >= 5 && resultado <= 10)
-                result = 'ruim'
-            else if(resultado >= 11)
-                result = 'presença de disturbio do sono'
-
-                
+                            
             console.log("resultado: "+result);
             
 
