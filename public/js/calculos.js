@@ -191,7 +191,79 @@
             console.log("resultado: "+result);
             
 
-            return result;
+            Swal.queue([{
+                title: 'Carregando...',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                onOpen: () => {
+                    Swal.showLoading();
+                    $.post(window.location.origin + "/add-resposta", {
+                        aceito : $("input[name='aceito']:checked").val(),
+                        email : $("#email").val(),
+                        sexo : $("input[name='geral-1']:checked").val(),
+                        faixa_etaria : $("input[name='geral-2']:checked").val(),
+                        periodo : $("#geral-3").val(),
+                        frequencia_exercicios : $("input[name='geral-4']:checked").val(),
+                        alimentacao : $("input[name='geral-5']:checked").val(),
+                        p1 : $("#p-1").val(),
+                        p2 : $("input[name='pergunta2']:checked").val(),
+                        p3 : $("#p-3").val(),
+                        p4 : $("#p-4").val(),
+                        p5a : $("input[name='pergunta5a']:checked").val(),
+                        p5b : $("input[name='pergunta5b']:checked").val(),
+                        p5c : $("input[name='pergunta5c']:checked").val(),
+                        p5d : $("input[name='pergunta5d']:checked").val(),
+                        p5e : $("input[name='pergunta5e']:checked").val(),
+                        p5f : $("input[name='pergunta5f']:checked").val(),
+                        p5g : $("input[name='pergunta5g']:checked").val(),
+                        p5h : $("input[name='pergunta5h']:checked").val(),
+                        p5i : $("input[name='pergunta5i']:checked").val(),
+                        p5j : $("input[name='pergunta5j']:checked").val(),
+                        p6 : $("input[name='pergunta6']:checked").val(),
+                        p7 : $("input[name='pergunta7']:checked").val(),
+                        p8 : $("input[name='pergunta8']:checked").val(),
+                        p9 : $("input[name='pergunta9']:checked").val(),
+                        componente1 : componente1(),
+                        componente2 : componente2(),
+                        componente3 : componente3(),
+                        componente4 : componente4(),
+                        componente5 : componente5(),
+                        componente6 : componente6(),
+                        componente7 : componente7(),
+                        resultado : result,
+                    }).then(function(data) {
+                        if(data.status == 'success') {
+    
+                            $("#addBoxModal").modal("hide");
+    
+                            Swal.fire({
+                                icon: 'success',
+                                text: 'Respostas enviadas com sucesso!',
+                                showConfirmButton: false,
+                                showCancelButton: true,
+                                cancelButtonText: "OK",
+                                onClose: () => {
+                                    search();
+                                }
+                            });
+    
+                        } else if (data.status == 'error') {
+
+                            Swal.fire({
+                                icon: 'error',
+                                text: data.message,
+                                showConfirmButton: false,
+                                showCancelButton: true,
+                                cancelButtonText: "OK",
+                                onClose: () => {
+                                    search();
+                                }
+                            });
+                        }
+                    }).catch();
+                }
+            }]);
+            
 
             // resultado
             // 0 - 4 = boa
@@ -207,43 +279,57 @@
 
         //verifica 'aceito'
         if($("input[name='aceito']:checked").val() == undefined){
-            alert("Para concluir o questionário você precisará permitir que suas respostas sejam utilizadas!");
+            Swal.fire('Alerta!','Para concluir o questionário você precisará permitir que suas respostas sejam utilizadas!','warning')
             return false;
         }
         
         //verifica 'email'
         if($("#email").val() == ""){
-            alert("Informe seu email!");
+            Swal.fire('Alerta!','Informe seu email!','warning')
+            return false;
+        }
+        
+        //verifica 'email' válido
+
+        let field = $("#email").val();
+
+        usuario = field.substring(0, field.indexOf("@"));
+        dominio = field.substring(field.indexOf("@")+ 1, field.length);
+
+        if ((usuario.length >=1) && (dominio.length >=3) && (usuario.search("@")==-1) && (dominio.search("@")==-1) && (usuario.search(" ")==-1) && (dominio.search(" ")==-1) && (dominio.search(".")!=-1) && (dominio.indexOf(".") >=1)&& (dominio.lastIndexOf(".") < dominio.length - 1)) {
+
+        }else{
+            Swal.fire('Alerta!','Email inválido!','warning')
             return false;
         }
 
         //verifica sexo
         if($("input[name='geral-1']:checked").val() == undefined){
-            alert("Informe seu sexo!");
+            Swal.fire('Alerta!','Informe seu sexo!','warning')
             return false;
         }
 
         //verifica faixa etaria
         if($("input[name='geral-2']:checked").val() == undefined){
-            alert("Informe sua faixa etária!");
+            Swal.fire('Alerta!','Informe sua faixa etária!','warning')
             return false;
         }
 
         //verifica periodo
         if($("#geral-3").val() == ""){
-            alert("Informe seu período!");
+            Swal.fire('Alerta!','Informe seu período!','warning')
             return false;
         }
 
         //verifica frequencia
         if($("input[name='geral-4']:checked").val() == undefined){
-            alert("Informe sua frequência em praticar atividades físicas!");
+            Swal.fire('Alerta!','Informe sua frequência em praticar atividades físicas!','warning')
             return false;
         }
 
         //verifica alimentação
         if($("input[name='geral-5']:checked").val() == undefined){
-            alert("Informe a qualidade da sua alimentação!");
+            Swal.fire('Alerta!','Informe a qualidade da sua alimentação!','warning')
             return false;
         }
 
@@ -253,109 +339,109 @@
 
         //verifica p1
         if($("#p-1").val() == ""){
-            alert("A pergunta 1 precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 1 precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica p2
         if($("input[name='pergunta2']:checked").val() == undefined){
-            alert("A pergunta 2 precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 2 precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica p3
         if($("#p-3").val() == ""){
-            alert("A pergunta 3 precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 3 precisa ser preenchida!','warning')
             return false;
         }
         
         //verifica p4
         if($("#p-4").val() == ""){
-            alert("A pergunta 4 precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 4 precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5a
         if($("input[name='pergunta5a']:checked").val() == undefined){
-            alert("A pergunta 5a precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-A precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5b
         if($("input[name='pergunta5b']:checked").val() == undefined){
-            alert("A pergunta 5b precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-B precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5c
         if($("input[name='pergunta5c']:checked").val() == undefined){
-            alert("A pergunta 5c precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-C precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5d
         if($("input[name='pergunta5d']:checked").val() == undefined){
-            alert("A pergunta 5d precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-D precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5e
         if($("input[name='pergunta5e']:checked").val() == undefined){
-            alert("A pergunta 5e precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-E precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5f
         if($("input[name='pergunta5f']:checked").val() == undefined){
-            alert("A pergunta 5f precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-F precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5g
         if($("input[name='pergunta5g']:checked").val() == undefined){
-            alert("A pergunta 5g precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-G precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5h
         if($("input[name='pergunta5h']:checked").val() == undefined){
-            alert("A pergunta 5h precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-H precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5i
         if($("input[name='pergunta5i']:checked").val() == undefined){
-            alert("A pergunta 5i precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-I precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica 5j
         if($("input[name='pergunta5j']:checked").val() == undefined){
-            alert("A pergunta 5j precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 5-J precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica p6
         if($("input[name='pergunta6']:checked").val() == undefined){
-            alert("A pergunta 6 precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 6 precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica p7
         if($("input[name='pergunta7']:checked").val() == undefined){
-            alert("A pergunta 7 precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 7 precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica p8
         if($("input[name='pergunta8']:checked").val() == undefined){
-            alert("A pergunta 8 precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 8 precisa ser preenchida!','warning')
             return false;
         }
 
         //verifica p9
         if($("input[name='pergunta9']:checked").val() == undefined){
-            alert("A pergunta 9 precisa ser preenchida!");
+            Swal.fire('Alerta!','A pergunta 9 precisa ser preenchida!','warning')
             return false;
         }
         

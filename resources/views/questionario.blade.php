@@ -911,7 +911,7 @@
         </div>
     </div>
     
-    <button class="btn btn-primary btn-lg btn-block" style="margin-bottom: 50px;margin-top: 50px;" data-toggle="modal" data-target="#modalExemplo" onclick="resultadoFinal()">CALCULAR</button>
+    <button class="btn btn-primary btn-lg btn-block" style="margin-bottom: 50px;margin-top: 50px;" data-toggle="modal" onclick="resultadoFinal()">CALCULAR</button>
 
 @stop
 
