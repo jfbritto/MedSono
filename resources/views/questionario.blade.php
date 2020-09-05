@@ -4,18 +4,18 @@
 
 <h1 class="display-4 text-center"><img src="/img/unifacig_branco.png" class="img img-fluid rounded "></h1>
 
-<div id="obrigado" style="color: #fff; display: none">
-    <h1 class="display-4 text-center" >
-        <img src="/img/cat.jpg" style="margin-bottom: 10px; max-width: 500px" class="img img-fluid rounded-circle rounded ">
+<div class="text-center" id="obrigado" style="color: #fff; display: none">
+    <h2 class="display-4 text-center" >
+        <img src="/img/cat.jpg" style="margin-bottom: 10px; max-width: 300px" class="img img-fluid rounded-circle rounded ">
         <br>
         Obrigado!
-    </h1>
-    <a style="margin-top: 20px;" href="/" class="btn btn-light btn-lg btn-block">Novo Envio</a>
+    </h2>
+    <a style="margin-top: 20px;" href="/" class="btn btn-light btn-lg">Novo Envio</a>
 </div>
 
 <div id="questionario">
 
-    <div class="jumbotron text-center" style="padding: 30px; margin-bottom: 0rem;">
+    <div class="jumbotron text-center" style="margin-bottom: 0rem;">
         <p class="lead text-center font-weight-bold"> <img src="/img/doctor.png" width="40"> MedSono <img style="margin-left: 5px;" src="/img/sleep.png" width="40"> </p>
         <hr class="my-4">
         <p class="lead text-center font-weight-bold">Índice da qualidade do sono de Pittsburgh</p>

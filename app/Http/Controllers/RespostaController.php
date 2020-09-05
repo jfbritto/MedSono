@@ -17,7 +17,7 @@ class RespostaController extends Controller
      //exibir questionario
      public function index()
      {
-         return view('questionario');
+        return view('questionario');
      }
 
      //exibir respostas
@@ -68,8 +68,10 @@ class RespostaController extends Controller
 
         $response = $this->respostaService->addResposta($data);
 
-        if($response['status'] == 'success')
+        if($response['status'] == 'success'){
+
             return response()->json(['status'=>'success'], 201);
+        }
 
         return response()->json(['status'=>'error', 'message'=>$response['data']], 201);
     }

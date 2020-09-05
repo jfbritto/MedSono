@@ -175,11 +175,11 @@
                     let result = '';
                     
                     if(resultado >= 0 && resultado <= 4)
-                        result = 'boa'
+                        result = 'Boa'
                     else if(resultado >= 5 && resultado <= 10)
-                        result = 'ruim'
+                        result = 'Ruim'
                     else if(resultado >= 11)
-                        result = 'presença de disturbio do sono'
+                        result = 'Presença de disturbio do sono'
 
                     Swal.queue([{
                         title: 'Carregando...',
