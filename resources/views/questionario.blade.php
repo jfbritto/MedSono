@@ -817,7 +817,7 @@
                 </div>
                 <div class="card-body">
 
-                    <label>Durante o último mês (setembro), com que frequência você tomou medicamento (prescrito ou por conta própria) para lhe ajudar?</label>      
+                    <label>Durante o último mês (setembro), com que frequência você tomou medicamento (prescrito ou por conta própria) para lhe ajudar a dormir?</label>      
 
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="pergunta7" id="p-7-a" value="0">
