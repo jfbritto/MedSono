@@ -18,8 +18,25 @@
     function componente3()
     {
         // valor da questão 4
-        let resp = $("#p-4").val();
+        let val = $("#p-4").val();
+
+        let resp = 0;
+
+        if(val >= 8)
+            resp = 0
+        else if(val <= 7 && val >= 6)
+            resp = 1
+        else if(val <= 5 && val >= 4)
+            resp = 2
+        else if(val <= 3)
+            resp = 3
+
         return resp;
+
+        // > 7 = 0
+        // 6 - 7 = 1
+        // 5 - 6 =2
+        //  < 5 = 3
     }
 
     function componente4()
