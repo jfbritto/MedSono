@@ -2,13 +2,14 @@
 
 @section('body')
 
+<a href="/"><h1 class="display-4 text-center"><img src="/img/unifacig_branco.png" class="img img-fluid rounded "></h1></a>
 
 <div class="row">
     <div class="col-md-12">
 
         <div class="card border-info">
-            <div class="card-header bg-default">
-                <a title="Exportar caixas" id="csv_origem" download="respostas.xls" href="#" onclick="return ExcellentExport.excel(this, 'tabela', 'Sheet Name Here');" class="btn btn-success"> <span id="txtcx">Exportar</span> <i class="fas fa-file-excel"></i></a>
+            <div class="card-header bg-default text-center">
+                <a title="Exportar caixas" id="csv_origem" download="respostas.xls" href="#" onclick="return ExcellentExport.excel(this, 'tabela', 'Sheet Name Here');" class="btn btn-success"> <i class="fas fa-file-excel"></i> <span id="txtcx">Exportar</span> <i class="fas fa-file-excel"></i></a>
             </div>
             <div class="card-body">
 

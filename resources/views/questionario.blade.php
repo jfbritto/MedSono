@@ -2,11 +2,22 @@
 
 @section('body')
 
-    <div class="jumbotron text-center" style="margin-top: 20px;">
-        <h1 class="display-4"><img src="https://unifacig.edu.br/wp-content/uploads/2019/01/unifacig.png" class="img img-fluid rounded "></h1>
+<h1 class="display-4 text-center"><img src="/img/unifacig_branco.png" class="img img-fluid rounded "></h1>
+
+<div id="obrigado" style="color: #fff; display: none">
+    <h1 class="display-4 text-center" >
+        <img src="/img/cat.jpg" style="margin-bottom: 10px;" class="img img-fluid rounded-circle rounded ">
+        Obrigado!
+    </h1>
+    <a style="margin-top: 20px;" href="/" class="btn btn-light btn-lg btn-block">Novo Envio</a>
+</div>
+
+<div id="questionario">
+
+    <div class="jumbotron text-center" style="padding: 30px; margin-bottom: 0rem;">
+        <p class="lead text-center font-weight-bold"> <img src="/img/doctor.png" width="40"> MedSono <img src="/img/sleep.png" width="40"> </p>
         <hr class="my-4">
-        <p class="lead text-center">MedSono / 4º periodo</p>
-        <p class="lead text-center">Índice da qualidade do sono de Pittsburgh</p>
+        <p class="lead text-center font-weight-bold">Índice da qualidade do sono de Pittsburgh</p>
         
         <p class="lead text-justify">Convidamos você, estudante de Medicina do Centro Universitário UNIFACIG, a participar como voluntário da nossa pesquisa “Avaliação da Qualidade do Sono de Estudantes de Medicina do Centro Universitário UNIFACIG por meio do Índice de Qualidade do Sono de Pittsburgh (PSQUI)”.</p>
         
@@ -549,7 +560,7 @@
                 </div>
                 <div class="card-body">
                     
-                    <label>Sentiu muito frio</label>   
+                    <label>Sentiu muito frio:</label>   
 
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="pergunta5f" id="p-5-6-a" value="0">
@@ -752,7 +763,7 @@
                 </div>
                 <div class="card-body">
 
-                    <label>Durante o último mês (setembro) como você classificaria a qualidade do seu sono de uma maneira geral:</label>      
+                    <label>Durante o último mês (setembro), como você classificaria a qualidade do seu sono de uma maneira geral:</label>      
 
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="pergunta6" id="p-6-a" value="0">
@@ -911,7 +922,9 @@
         </div>
     </div>
     
-    <button class="btn btn-primary btn-lg btn-block" style="margin-bottom: 50px;margin-top: 50px;" data-toggle="modal" onclick="resultadoFinal()">CALCULAR</button>
+    <button class="btn btn-light btn-lg btn-block" style="margin-bottom: 50px;margin-top: 50px;" data-toggle="modal" onclick="resultadoFinal()">CALCULAR</button>
+
+</div>
 
 @stop
 

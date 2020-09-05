@@ -6,9 +6,9 @@
 
         <title>Med Sono</title>
 
-        <link rel="icon" href="https://unifacig.edu.br/wp-content/uploads/2019/01/unifacig.png">
+        <link rel="icon" href="/img/sleepico.png">
 
-        <meta name="theme-color" content="#1bb0be">
+        <meta name="theme-color" content="#004694">
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,7 +33,7 @@
         
 
     </head>
-    <body style="background-color:#4e7eb5 !important">
+    <body style="background-color:#004694 !important">
 
         <div class="container-fluid mb-5" style="padding-top: 15px">
 
@@ -41,9 +41,15 @@
         
         </div>        
 
-        <footer class="bg-black small text-center text-white-50" style="padding: 10px">
+        <footer class="bg-black small text-center text-white-50 footer" style="padding: 10px">
             <div class="container">
                 <div class="social d-flex justify-content-center">
+                    <a target="_blank" href="https://www.instagram.com/bianchijf/" class="mx-2">
+                        <i style="color: #fff; width: 30px" class="fab fa-instagram"></i>
+                    </a>
+                    <a target="_blank" href="https://www.linkedin.com/in/jo%C3%A3o-filipi-britto-a7375a103/" class="mx-2">
+                        <i style="color: #fff; width: 30px" class="fab fa-linkedin"></i>
+                    </a>
                     <a target="_blank" href="https://github.com/jfbritto" class="mx-2">
                         <i style="color: #fff; width: 30px" class="fab fa-github"></i>
                     </a>
