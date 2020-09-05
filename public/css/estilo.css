@@ -58,3 +58,10 @@ body{
 .card-header {
     border-bottom: 1px solid #bf0811;
 }
+
+.quebra{
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    cursor: pointer;
+}

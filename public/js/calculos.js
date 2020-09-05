@@ -150,46 +150,6 @@
                 result = 'ruim'
             else if(resultado >= 11)
                 result = 'presença de disturbio do sono'
-            
-            console.log("aceito: "+$("input[name='aceito']:checked").val());
-            console.log("email: "+$("#email").val());
-            console.log("sexo: "+$("input[name='geral-1']:checked").val());
-            console.log("faixa etaria: "+$("input[name='geral-2']:checked").val());
-            console.log("periodo: "+$("#geral-3").val());
-            console.log("frequencia: "+$("input[name='geral-4']:checked").val());
-            console.log("alimentacao: "+$("input[name='geral-5']:checked").val());
-
-            console.log("p1: "+$("#p-1").val());
-            console.log("p2: "+$("input[name='pergunta2']:checked").val());
-            console.log("p3: "+$("#p-3").val());
-            console.log("p4: "+$("#p-4").val());
-
-            console.log("p5a: "+$("input[name='pergunta5a']:checked").val());
-            console.log("p5b: "+$("input[name='pergunta5b']:checked").val());
-            console.log("p5c: "+$("input[name='pergunta5c']:checked").val());
-            console.log("p5d: "+$("input[name='pergunta5d']:checked").val());
-            console.log("p5e: "+$("input[name='pergunta5e']:checked").val());
-            console.log("p5f: "+$("input[name='pergunta5f']:checked").val());
-            console.log("p5g: "+$("input[name='pergunta5g']:checked").val());
-            console.log("p5h: "+$("input[name='pergunta5h']:checked").val());
-            console.log("p5i: "+$("input[name='pergunta5i']:checked").val());
-            console.log("p5j: "+$("input[name='pergunta5j']:checked").val());
-
-            console.log("p6: "+$("input[name='pergunta6']:checked").val());
-            console.log("p7: "+$("input[name='pergunta7']:checked").val());
-            console.log("p8: "+$("input[name='pergunta8']:checked").val());
-            console.log("p9: "+$("input[name='pergunta9']:checked").val());
-
-            console.log("componente1: "+componente1());
-            console.log("componente2: "+componente2());
-            console.log("componente3: "+componente3());
-            console.log("componente4: "+componente4());
-            console.log("componente5: "+componente5());
-            console.log("componente6: "+componente6());
-            console.log("componente7: "+componente7());
-                            
-            console.log("resultado: "+result);
-            
 
             Swal.queue([{
                 title: 'Carregando...',

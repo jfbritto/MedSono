@@ -14,6 +14,18 @@ class RespostaController extends Controller
         $this->respostaService = $respostaService;
     }
 
+     //exibir questionario
+     public function index()
+     {
+         return view('questionario');
+     }
+
+     //exibir respostas
+     public function respostas()
+     {
+         return view('respostas');
+     }
+
     //cadastrar resposta
     public function addResposta(Request $request)
     {
@@ -22,9 +34,9 @@ class RespostaController extends Controller
             'aceito' => $request->aceito,
             'email' => $request->email,
             'sexo' => $request->sexo,
-            'faixa_etaria' => $request->faixa,
+            'faixa_etaria' => $request->faixa_etaria,
             'periodo' => $request->periodo,
-            'frequencia_exercicios' => $request->frequencia,
+            'frequencia_exercicios' => $request->frequencia_exercicios,
             'alimentacao' => $request->alimentacao,
             'p1' => $request->p1,
             'p2' => $request->p2,
@@ -60,5 +72,16 @@ class RespostaController extends Controller
             return response()->json(['status'=>'success'], 201);
 
         return response()->json(['status'=>'error', 'message'=>$response['data']], 201);
+    }
+
+    //buscar todas as caixas cadastradas
+    public function buscaRespostas()
+    {
+        $response = $this->respostaService->index();
+
+        if($response['status'] == 'success')
+            return response()->json(['status'=>'success', 'data'=>$response['data']], 201);
+            
+        return response()->json(['status'=>'error', 'message'=>$response['data']], 500);
     }
 }

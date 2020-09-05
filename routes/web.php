@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('questionario');
-});
+Route::get('/', 'RespostaController@index');
+Route::get('/respostas', 'RespostaController@respostas');
 
 Route::post('/add-resposta', 'RespostaController@addResposta');
+Route::post('/carrega-respostas', 'RespostaController@buscaRespostas');
