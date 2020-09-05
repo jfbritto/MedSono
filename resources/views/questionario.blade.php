@@ -6,7 +6,8 @@
 
 <div id="obrigado" style="color: #fff; display: none">
     <h1 class="display-4 text-center" >
-        <img src="/img/cat.jpg" style="margin-bottom: 10px;" class="img img-fluid rounded-circle rounded ">
+        <img src="/img/cat.jpg" style="margin-bottom: 10px; max-width: 500px" class="img img-fluid rounded-circle rounded ">
+        <br>
         Obrigado!
     </h1>
     <a style="margin-top: 20px;" href="/" class="btn btn-light btn-lg btn-block">Novo Envio</a>
@@ -15,7 +16,7 @@
 <div id="questionario">
 
     <div class="jumbotron text-center" style="padding: 30px; margin-bottom: 0rem;">
-        <p class="lead text-center font-weight-bold"> <img src="/img/doctor.png" width="40"> MedSono <img src="/img/sleep.png" width="40"> </p>
+        <p class="lead text-center font-weight-bold"> <img src="/img/doctor.png" width="40"> MedSono <img style="margin-left: 5px;" src="/img/sleep.png" width="40"> </p>
         <hr class="my-4">
         <p class="lead text-center font-weight-bold">Índice da qualidade do sono de Pittsburgh</p>
         
@@ -350,6 +351,17 @@
                 </div>
             </div>
             
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card border-info">
+                <div class="card-header bg-default" style="border-bottom: none;">
+                    Durante o último mês (setembro), com que frequência você teve dificuldade para dormir porque você:
+                </div>
+            </div>
         </div>
     </div>
 
