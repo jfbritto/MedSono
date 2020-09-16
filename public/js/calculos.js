@@ -171,111 +171,118 @@
                 if(validaCampos())
                 {
 
-                    $.get(window.location.origin + "/email-repetido", {
-                        email : $("#email").val(),
-                    }).then(function(data) {
+                    Swal.queue([{
+                        title: 'Carregando...',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        onOpen: () => {
                     
                     
-                        if(data.data.length == 0){
-
-
-                            let resultado = parseInt(componente1())+parseInt(componente2())+parseInt(componente3())+parseInt(componente4())+parseInt(componente5())+parseInt(componente6())+parseInt(componente7());
-
-                            let result = '';
+                            $.get(window.location.origin + "/email-repetido", {
+                                email : $("#email").val(),
+                            }).then(function(data) {
                             
-                            if(resultado >= 0 && resultado <= 4)
-                                result = 'Boa'
-                            else if(resultado >= 5 && resultado <= 10)
-                                result = 'Ruim'
-                            else if(resultado >= 11)
-                                result = 'Presença de disturbio do sono'
+                            
+                                if(data.data.length == 0){
 
-                            Swal.queue([{
-                                title: 'Carregando...',
-                                allowOutsideClick: false,
-                                allowEscapeKey: false,
-                                onOpen: () => {
-                                    Swal.showLoading();
-                                    $.post(window.location.origin + "/add-resposta", {
-                                        aceito : $("input[name='aceito']:checked").val(),
-                                        email : $("#email").val(),
-                                        sexo : $("input[name='geral-1']:checked").val(),
-                                        faixa_etaria : $("input[name='geral-2']:checked").val(),
-                                        periodo : $("#geral-3").val(),
-                                        frequencia_exercicios : $("input[name='geral-4']:checked").val(),
-                                        alimentacao : $("input[name='geral-5']:checked").val(),
-                                        p1 : $("#p-1").val(),
-                                        p2 : $("input[name='pergunta2']:checked").val(),
-                                        p3 : $("#p-3").val(),
-                                        p4 : $("#p-4").val(),
-                                        p5a : $("input[name='pergunta5a']:checked").val(),
-                                        p5b : $("input[name='pergunta5b']:checked").val(),
-                                        p5c : $("input[name='pergunta5c']:checked").val(),
-                                        p5d : $("input[name='pergunta5d']:checked").val(),
-                                        p5e : $("input[name='pergunta5e']:checked").val(),
-                                        p5f : $("input[name='pergunta5f']:checked").val(),
-                                        p5g : $("input[name='pergunta5g']:checked").val(),
-                                        p5h : $("input[name='pergunta5h']:checked").val(),
-                                        p5i : $("input[name='pergunta5i']:checked").val(),
-                                        p5j : $("input[name='pergunta5j']:checked").val(),
-                                        p6 : $("input[name='pergunta6']:checked").val(),
-                                        p7 : $("input[name='pergunta7']:checked").val(),
-                                        p8 : $("input[name='pergunta8']:checked").val(),
-                                        p9 : $("input[name='pergunta9']:checked").val(),
-                                        componente1 : componente1(),
-                                        componente2 : componente2(),
-                                        componente3 : componente3(),
-                                        componente4 : componente4(),
-                                        componente5 : componente5(),
-                                        componente6 : componente6(),
-                                        componente7 : componente7(),
-                                        resultado : result,
-                                    }).then(function(data) {
-                                        if(data.status == 'success') {
-                    
-                                            Swal.fire({
-                                                icon: 'success',
-                                                title: `Respostas enviadas com sucesso!`,
-                                                text: `Resultado: ${resultado} - ${result}!`,
-                                                showConfirmButton: false,
-                                                showCancelButton: true,
-                                                cancelButtonText: "OK",
-                                                onClose: () => {
-                                                    $("#questionario").hide();
-                                                    $(".footer").hide();
-                                                    $("#obrigado").show();
-                                                }
-                                            });
-                    
-                                        } else if (data.status == 'error') {
 
-                                            Swal.fire({
-                                                icon: 'error',
-                                                text: data.message,
-                                                showConfirmButton: false,
-                                                showCancelButton: true,
-                                                cancelButtonText: "OK",
-                                                onClose: () => {
-                                                    
+                                    let resultado = parseInt(componente1())+parseInt(componente2())+parseInt(componente3())+parseInt(componente4())+parseInt(componente5())+parseInt(componente6())+parseInt(componente7());
+
+                                    let result = '';
+                                    
+                                    if(resultado >= 0 && resultado <= 4)
+                                        result = 'Boa'
+                                    else if(resultado >= 5 && resultado <= 10)
+                                        result = 'Ruim'
+                                    else if(resultado >= 11)
+                                        result = 'Presença de disturbio do sono'
+
+                                    Swal.queue([{
+                                        title: 'Carregando...',
+                                        allowOutsideClick: false,
+                                        allowEscapeKey: false,
+                                        onOpen: () => {
+                                            Swal.showLoading();
+                                            $.post(window.location.origin + "/add-resposta", {
+                                                aceito : $("input[name='aceito']:checked").val(),
+                                                email : $("#email").val(),
+                                                sexo : $("input[name='geral-1']:checked").val(),
+                                                faixa_etaria : $("input[name='geral-2']:checked").val(),
+                                                periodo : $("#geral-3").val(),
+                                                frequencia_exercicios : $("input[name='geral-4']:checked").val(),
+                                                alimentacao : $("input[name='geral-5']:checked").val(),
+                                                p1 : $("#p-1").val(),
+                                                p2 : $("input[name='pergunta2']:checked").val(),
+                                                p3 : $("#p-3").val(),
+                                                p4 : $("#p-4").val(),
+                                                p5a : $("input[name='pergunta5a']:checked").val(),
+                                                p5b : $("input[name='pergunta5b']:checked").val(),
+                                                p5c : $("input[name='pergunta5c']:checked").val(),
+                                                p5d : $("input[name='pergunta5d']:checked").val(),
+                                                p5e : $("input[name='pergunta5e']:checked").val(),
+                                                p5f : $("input[name='pergunta5f']:checked").val(),
+                                                p5g : $("input[name='pergunta5g']:checked").val(),
+                                                p5h : $("input[name='pergunta5h']:checked").val(),
+                                                p5i : $("input[name='pergunta5i']:checked").val(),
+                                                p5j : $("input[name='pergunta5j']:checked").val(),
+                                                p6 : $("input[name='pergunta6']:checked").val(),
+                                                p7 : $("input[name='pergunta7']:checked").val(),
+                                                p8 : $("input[name='pergunta8']:checked").val(),
+                                                p9 : $("input[name='pergunta9']:checked").val(),
+                                                componente1 : componente1(),
+                                                componente2 : componente2(),
+                                                componente3 : componente3(),
+                                                componente4 : componente4(),
+                                                componente5 : componente5(),
+                                                componente6 : componente6(),
+                                                componente7 : componente7(),
+                                                resultado : result,
+                                            }).then(function(data) {
+                                                if(data.status == 'success') {
+                            
+                                                    Swal.fire({
+                                                        icon: 'success',
+                                                        title: `Respostas enviadas com sucesso!`,
+                                                        text: `Resultado: ${resultado} - ${result}!`,
+                                                        showConfirmButton: false,
+                                                        showCancelButton: true,
+                                                        cancelButtonText: "OK",
+                                                        onClose: () => {
+                                                            $("#questionario").hide();
+                                                            $(".footer").hide();
+                                                            $("#obrigado").show();
+                                                        }
+                                                    });
+                            
+                                                } else if (data.status == 'error') {
+
+                                                    Swal.fire({
+                                                        icon: 'error',
+                                                        text: data.message,
+                                                        showConfirmButton: false,
+                                                        showCancelButton: true,
+                                                        cancelButtonText: "OK",
+                                                        onClose: () => {
+                                                            
+                                                        }
+                                                    });
                                                 }
-                                            });
+                                            }).catch();
                                         }
-                                    }).catch();
-                                }
-                            }]);
+                                    }]);
 
 
 
-                        
                                 
-                        }else{
-                            Swal.fire('Putz!','Você já havia feito o envio do formulário!','error')
-                            return false;
-                        }
-                        
-                    }).catch();
+                                        
+                                }else{
+                                    Swal.fire('Putz!','Você já havia feito o envio do formulário!','error')
+                                    return false;
+                                }
+                                
+                            }).catch();
 
-
+                    }}]);
                     // resultado
                     // 0 - 4 = boa
                     // 5 - 10 = ruim
