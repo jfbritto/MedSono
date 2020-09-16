@@ -226,7 +226,8 @@
             
                                     Swal.fire({
                                         icon: 'success',
-                                        text: 'Respostas enviadas com sucesso!\n\n\nObrigado por contribuir!',
+                                        title: `Respostas enviadas com sucesso!`,
+                                        text: `Resultado: ${resultado} - ${result}!`,
                                         showConfirmButton: false,
                                         showCancelButton: true,
                                         cancelButtonText: "OK",
