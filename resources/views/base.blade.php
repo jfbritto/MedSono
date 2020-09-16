@@ -15,13 +15,13 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <meta name=”keywords” content="med sono, med, sono, pesquisa" />
-        <meta property="og:url" content="http://medsono.jfbritto.com.br/" />
+        <!-- <meta property="og:url" content="http://medsono.jfbritto.com.br/" /> -->
         <meta property="type" content="website" />
         <meta property="og:title" content="MED SONO">
         <meta property="og:description" content="Índice da qualidade do sono de Pittsburgh">
-        <meta property="og:image" content="https://unifacig.edu.br/wp-content/uploads/2019/01/unifacig.png">
+        <meta property="og:image" content="/img/img.jpeg">
         <meta property="og:locale" content="pt_BR">
-        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:type" content="image/jpeg">
         <meta property="og:image:width" content="640">
         <meta property="og:image:height" content="480">
 
