@@ -86,4 +86,17 @@ class RespostaController extends Controller
             
         return response()->json(['status'=>'error', 'message'=>$response['data']], 500);
     }
+
+    //buscar todas as caixas cadastradas
+    public function emailRepetido()
+    {
+        $email = strval($_GET['email']);
+
+        $response = $this->respostaService->emailRepetido($email);
+
+        if($response['status'] == 'success')
+            return response()->json(['status'=>'success', 'data'=>$response['data']], 201);
+            
+        return response()->json(['status'=>'error', 'message'=>$response['data']], 500);
+    }
 }

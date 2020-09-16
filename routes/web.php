@@ -18,3 +18,4 @@ Route::get('/respostas', 'RespostaController@respostas');
 
 Route::post('/add-resposta', 'RespostaController@addResposta');
 Route::post('/carrega-respostas', 'RespostaController@buscaRespostas');
+Route::get('/email-repetido', 'RespostaController@emailRepetido');

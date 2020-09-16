@@ -10,7 +10,6 @@
         <br>
         Obrigado!
     </h2>
-    <a style="margin-top: 20px;" href="/" class="btn btn-light btn-lg">Novo Envio</a>
 </div>
 
 <div id="questionario">

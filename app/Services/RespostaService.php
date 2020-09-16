@@ -54,4 +54,20 @@ class RespostaService
         return $response;
     }
 
+    public function emailRepetido($email)
+    {
+        $response = [];
+
+        try{
+
+            $resposta = DB::select( DB::raw("select * from respostas where email like '%".$email."%' "));
+
+            $response = ['status' => 'success', 'data' => $resposta];
+        }catch(Exception $e){
+            $response = ['status' => 'error', 'data' => $e->getMessage()];
+        }
+
+        return $response;
+    }
+
 }
