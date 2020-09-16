@@ -27,10 +27,10 @@ $(document).ready(function(){
     }
 
     const freq = {
-        0:'1 ou 2 vezes na semana',
-        1:'3 ou 4 vezes na semana',
-        2:'Todos os dias da semana',
-        3:'Não pratico atividade física'
+        1:'1 ou 2 vezes na semana',
+        2:'3 ou 4 vezes na semana',
+        3:'Todos os dias da semana',
+        4:'Não pratico atividade física'
     }
 
     const alim = {
