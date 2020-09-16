@@ -172,7 +172,7 @@
                 {
 
                     Swal.queue([{
-                        title: 'Carregando...',
+                        title: 'Validando...',
                         allowOutsideClick: false,
                         allowEscapeKey: false,
                         onOpen: () => {
