@@ -164,13 +164,13 @@
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="geral-4" id="geral-4-c" value="3">
                         <label class="form-check-label" for="geral-4-c">
-                            &nbsp; todos os dias da semana
+                            &nbsp; Todos os dias da semana
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="geral-4" id="geral-4-d" value="4">
                         <label class="form-check-label" for="geral-4-d">
-                            &nbsp; não pratico atividade física
+                            &nbsp; Não pratico atividade física
                         </label>
                     </div>
 
