@@ -34,10 +34,10 @@ $(document).ready(function(){
     }
 
     const alim = {
-        0:'Muito boa',
-        1:'Boa',
-        2:'Regular',
-        3:'Ruim'
+        1:'Muito boa',
+        2:'Boa',
+        3:'Regular',
+        4:'Ruim'
     }
     
     const temp = {
